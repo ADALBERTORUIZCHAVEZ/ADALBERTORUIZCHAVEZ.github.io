@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Adalberto Ruiz Chávez, estudiante y desarrollador de software en formación.">
+  <title>Adalberto Ruiz Chávez | Portafolio</title>
+  <style>
+    :root {
+      --fondo: #0b1220;
+      --fondo-tarjeta: #121d30;
+      --texto: #e8eef8;
+      --texto-secundario: #a9b7cc;
+      --acento: #67e8f9;
+      --acento-oscuro: #164e63;
+      --borde: #26364d;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--acento); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #fbbf24; outline-offset: 4px; }
+
+    .contenedor { width: min(1080px, 90%); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 18, 32, .94);
+      border-bottom: 1px solid var(--borde);
+      backdrop-filter: blur(10px);
+    }
+    .barra-navegacion {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .marca { color: var(--texto); font-weight: 800; text-decoration: none; letter-spacing: .4px; }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    nav a { color: var(--texto-secundario); text-decoration: none; font-size: .95rem; }
+    nav a:hover { color: var(--acento); }
+
+    .inicio { padding: 100px 0 85px; }
+    .etiqueta {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #226477;
+      border-radius: 99px;
+      background: rgba(22, 78, 99, .25);
+      color: var(--acento);
+      font-size: .9rem;
+    }
+    h1 { margin: 18px 0 12px; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1.08; letter-spacing: -2px; }
+    .resaltado { color: var(--acento); }
+    .subtitulo { max-width: 680px; color: var(--texto-secundario); font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .boton {
+      display: inline-block;
+      padding: 11px 17px;
+      border-radius: 9px;
+      border: 1px solid var(--acento);
+      background: var(--acento);
+      color: #08202b;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .boton.secundario { background: transparent; color: var(--acento); }
+    .boton:hover { transform: translateY(-2px); }
+
+    section { padding: 68px 0; scroll-margin-top: 70px; }
+    .titulo-seccion { margin: 0 0 10px; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+    .descripcion-seccion { max-width: 720px; margin: 0 0 28px; color: var(--texto-secundario); }
+    .dos-columnas { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
+    .panel, .tarjeta {
+      border: 1px solid var(--borde);
+      background: var(--fondo-tarjeta);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .panel h3, .tarjeta h3 { margin-top: 0; }
+    .panel p, .tarjeta p { color: var(--texto-secundario); }
+    .dato { margin: 0 0 12px; }
+    .dato strong { color: var(--texto); }
+
+    .lista-habilidades { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 18px 0 0; list-style: none; }
+    .lista-habilidades li { padding: 7px 12px; border: 1px solid var(--borde); border-radius: 8px; color: var(--texto-secundario); background: #0c1728; }
+    .proyectos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .tarjeta { display: flex; flex-direction: column; align-items: flex-start; }
+    .numero { color: var(--acento); font-size: .85rem; font-weight: 700; letter-spacing: 1px; }
+    .tarjeta h3 { margin: 9px 0 5px; font-size: 1.15rem; }
+    .tarjeta p { flex-grow: 1; }
+    .enlace-proyecto { display: inline-block; margin-top: 9px; font-weight: 700; text-decoration: none; }
+    .nota { color: var(--texto-secundario); font-size: .9rem; }
+
+    footer { padding: 28px 0; border-top: 1px solid var(--borde); color: var(--texto-secundario); text-align: center; }
+    footer a { text-decoration: none; }
+
+    @media (max-width: 800px) {
+      .dos-columnas { grid-template-columns: 1fr; }
+      .proyectos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .inicio { padding: 76px 0 60px; }
+    }
+    @media (max-width: 560px) {
+      .barra-navegacion { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      nav { gap: 12px; }
+      .proyectos { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="contenedor barra-navegacion">
+      <a class="marca" href="#inicio">ARCh.</a>
+      <nav aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#educacion">Educación</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="inicio" id="inicio">
+      <div class="contenedor">
+        <span class="etiqueta">Portafolio de desarrollo de software</span>
+        <h1>Hola, soy<br><span class="resaltado">Adalberto Ruiz Chávez.</span></h1>
+        <p class="subtitulo">Estudiante de Ingeniería en Sistemas y desarrollador de software en formación. Me interesa crear soluciones prácticas mediante la programación, las bases de datos y el desarrollo de aplicaciones.</p>
+        <div class="acciones">
+          <a class="boton" href="#proyectos">Conocer mis proyectos</a>
+          <a class="boton secundario" href="https://github.com/ADALBERTORUIZCHAVEZ" target="_blank" rel="noopener noreferrer">Mi GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Sobre mí</h2>
+        <p class="descripcion-seccion">Una breve presentación de quién soy y qué puedo aportar.</p>
+        <div class="dos-columnas">
+          <article class="panel">
+            <h3>¿Quién soy?</h3>
+            <p>Soy una persona interesada en la tecnología y en aprender cómo se construyen los sistemas de software. A través de proyectos escolares he practicado la programación, el diseño de interfaces gráficas, el manejo de bases de datos y la comunicación entre aplicaciones.</p>
+            <h3>¿Qué puedo hacer?</h3>
+            <p>Puedo desarrollar programas con Java y Python, crear interfaces gráficas, conectar aplicaciones con bases de datos SQL y trabajar en proyectos que intercambian información mediante sockets. También puedo documentar proyectos y organizar su código usando Git y GitHub.</p>
+          </article>
+          <aside class="panel">
+            <h3>Objetivo profesional</h3>
+            <p class="dato"><strong>Puesto al que aspiro:</strong><br>Desarrollador de software junior.</p>
+            <p class="dato"><strong>Áreas de interés:</strong><br>Desarrollo de aplicaciones, bases de datos y sistemas cliente-servidor.</p>
+            <p class="dato"><strong>Perfil:</strong><br>En formación, con interés en aprender y mejorar continuamente.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="educacion">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Educación</h2>
+        <p class="descripcion-seccion">Formación académica relacionada con mi desarrollo profesional.</p>
+        <article class="panel">
+          <h3>Ingeniería en Sistemas</h3>
+          <p><strong>Universidad:</strong> Universidad de Sonora (UNISON)</p>
+          <p><strong>Estado:</strong> En curso</p>
+          <p class="nota">Edita estos datos si el nombre oficial de tu carrera, institución o estado académico es diferente. Agrega aquí otras carreras, cursos o certificaciones que hayas cursado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Habilidades</h2>
+        <p class="descripcion-seccion">Tecnologías que he utilizado en prácticas y proyectos académicos, además de habilidades personales que sigo desarrollando.</p>
+        <div class="dos-columnas">
+          <article class="panel">
+            <h3>Tecnologías</h3>
+            <ul class="lista-habilidades">
+              <li>Java</li><li>Python</li><li>SQL</li><li>MySQL</li><li>SQLite</li>
+              <li>Java Swing</li><li>Git</li><li>GitHub</li><li>Sockets TCP</li><li>HTML</li><li>CSS</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Habilidades personales</h3>
+            <ul class="lista-habilidades">
+              <li>Resolución de problemas</li><li>Pensamiento lógico</li><li>Trabajo en equipo</li>
+              <li>Aprendizaje continuo</li><li>Organización</li><li>Documentación</li>
+            </ul>
+            <p class="nota">Conserva únicamente las habilidades que puedas explicar con ejemplos reales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Proyectos</h2>
+        <p class="descripcion-seccion">Algunos proyectos académicos en los que he practicado diferentes conceptos de programación. Sustituye los enlaces marcados como pendientes por las URL de los repositorios de la tarea 2.</p>
+        <div class="proyectos">
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 01</span>
+            <h3>Sistema de productos y almacenes</h3>
+            <p>Aplicación de escritorio con inicio de sesión, roles de usuario y administración de productos y almacenes usando Java y una base de datos SQL.</p>
+            <a class="enlace-proyecto" href="https://github.com/ADALBERTORUIZCHAVEZ/Sistema" target="_blank" rel="noopener noreferrer">Ver repositorio ↗</a>
+          </article>
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 02</span>
+            <h3>Sistema de monitoreo de sensores</h3>
+            <p>Aplicación cliente-servidor que recibe datos de sensores por TCP, los guarda en SQLite y muestra datos actuales e históricos en gráficas.</p>
+            <!-- Reemplaza # por la URL real del repositorio de este proyecto. -->
+            <a class="enlace-proyecto" href="#">Agregar enlace del repositorio ↗</a>
+          </article>
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 03</span>
+            <h3>Juego El gato multijugador</h3>
+            <p>Juego de tres en raya desarrollado con Java Swing, en el que dos jugadores se conectan a un servidor y ven los movimientos de su oponente.</p>
+            <!-- Reemplaza # por la URL real del repositorio de este proyecto. -->
+            <a class="enlace-proyecto" href="#">Agregar enlace del repositorio ↗</a>
+          </article>
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 04</span>
+            <h3>Juego Lights Out</h3>
+            <p>Juego de lógica en Python en el que se deben apagar todas las luces mediante movimientos que cambian celdas cercanas.</p>
+            <!-- Reemplaza # por la URL real del repositorio de este proyecto. -->
+            <a class="enlace-proyecto" href="#">Agregar enlace del repositorio ↗</a>
+          </article>
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 05</span>
+            <h3>Juego de la vida de Conway</h3>
+            <p>Simulación en Python de un autómata celular que cambia con el paso de las generaciones siguiendo un conjunto de reglas.</p>
+            <!-- Reemplaza # por la URL real del repositorio de este proyecto. -->
+            <a class="enlace-proyecto" href="#">Agregar enlace del repositorio ↗</a>
+          </article>
+          <article class="tarjeta">
+            <span class="numero">PROYECTO 06</span>
+            <h3>Calculadora en Python</h3>
+            <p>Programa básico para realizar operaciones aritméticas con dos números: suma, resta, multiplicación y división.</p>
+            <!-- Reemplaza # por la URL real del repositorio de este proyecto. -->
+            <a class="enlace-proyecto" href="#">Agregar enlace del repositorio ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>© 2026 Adalberto Ruiz Chávez · Portafolio personal</p>
+      <p><a href="https://github.com/ADALBERTORUIZCHAVEZ" target="_blank" rel="noopener noreferrer">github.com/ADALBERTORUIZCHAVEZ</a></p>
+    </div>
+  </footer>
+</body>
+</html>
